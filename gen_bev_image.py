@@ -9,6 +9,10 @@ import cv2
 import os
 import mayavi.mlab as mlab
 
+res = 0.05
+# image size would be 400x800
+side_range = (-20, 20)
+fwd_range = (-20, 20)
 
 
 def load_pc(f):
@@ -22,8 +26,7 @@ print('max x: {}, min x: {}'.format(np.max(points[0,:]), np.min(points[0,:])))
 print('max y: {}, min y: {}'.format(np.max(points[1,:]), np.min(points[1,:])))
 print('max z: {}, min z: {}'.format(np.max(points[2,:]), np.min(points[2,:])))
 
-side_range = (-10, 10)
-fwd_range = (0, 20)
+
 
 x = points[:, 0]
 y = points[:, 1]
@@ -39,7 +42,6 @@ y = y[indices]
 z = z[indices]
 
 # now mapping the real world point to image, expand 200x
-res = 0.05
 # convert coordinates to 
 x_img = (-y/res).astype(np.int32)
 y_img = (-x/res).astype(np.int32)

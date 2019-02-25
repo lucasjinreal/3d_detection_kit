@@ -32,7 +32,13 @@ to get more information, you can visit our community forum to talk: http://talk.
 
 ### convert point cloud to bev map
 
-To get an bev map for point cloud.
+To get an bev map for point cloud. it should construct a image with certain width and height, then every pixel value should be the z, if there is no point from top view, then z should be 0, so that bev image would be black. So to construct a bev map, should crop the point cloud first, then make x,y coordinates min to be 0, which is mapping x, y to image coordinates. After that, mapping z values to 0~255 which will be using for pixel values. There mainly 3 things to make it done:
+
+- Crop the point cloud to certain range, like left-right range, back-forward range;
+- Shifting x, y values to min be 0;
+- Mapping z to image pixel values.
+
+
 
 
 
