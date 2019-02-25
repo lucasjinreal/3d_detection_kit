@@ -19,4 +19,4 @@ link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
 add_executable (lidar_object_detect lidar_object_detect.cpp)
-target_link_libraries (lidar_object_detect ${PCL_LIBRARIES})
+target_link_libraries (lidar_object_detect ${PCL_LIBRARIES} glog)
