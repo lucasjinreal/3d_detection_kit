@@ -99,10 +99,16 @@ def gen_bev_map(pc, lr_range=[-10, 10], bf_range=[-20, 20], res=0.05):
     h = 1+int((bf_range[1] - bf_range[0])/res)
     im = np.zeros([h, w], dtype=np.uint8)
     im[y_img, x_img] = pixel_values
+    cropped_cloud = np.vstack([x, y, z]).transpose()
+    return im, cropped_cloud
 
-im = gen_bev_map(points)
+im, cropped_cloud = gen_bev_map(points)
 cv2.imshow('rr', im)
 cv2.waitKey(0)
 
+
+x = cropped_cloud[:,0]
+y = cropped_cloud[:,1]
+z = cropped_cloud[:,2]
 mlab.points3d(x, y, z, z,  mode="point", colormap='spectral')
 mlab.show()
