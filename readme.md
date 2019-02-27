@@ -3,12 +3,21 @@
 This repo contains several useful scripts which using for 3D detection algorithm development. Including:
 
 - Loading and visualization on lidar point cloud;
+
 - Generate bev map(bird view map);
+
 - Showing 3D Bounding box on point cloud;
+
 - Project 3D Bounding Box on image with calib params;
+
 - Showing bbox on bev image angle;
 
+  
 
+## Updates
+
+- **2020-**: to be continue.
+- **2019-02-27**: Update vis_3d, it can using mayavi visualization point cloud with 3D bounding box now.
 
 ## Usage
 
