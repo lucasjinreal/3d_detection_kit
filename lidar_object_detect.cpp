@@ -136,7 +136,6 @@ int main(int argc, char **argv)
     // process on cloud
     pcl::PointCloud<PointType>::Ptr cloud_filtered(new pcl::PointCloud<PointType>);
     detectObjectsOnCloud(cloud, cloud_filtered);
-
     cout << "detect done.\n";
 
     // now we can show this cloud
