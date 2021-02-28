@@ -1,6 +1,6 @@
 import os
 import numpy as np
-from open3d import *
+import open3d
 import cv2
 
 # a = 'training/velodyne/000900.bin'
@@ -12,8 +12,8 @@ print(b)
 print(b.shape)
 
 points = np.random.rand(10000, 3)
-point_cloud = PointCloud()
-point_cloud.points = Vector3dVector(points)
+point_cloud = open3d.geometry.PointCloud()
+point_cloud.points = open3d.utility.Vector3dVector(points)
 
 def custom_draw_geometry_with_key_callback(pcd):
     def change_background_to_black(vis):
@@ -40,7 +40,7 @@ def custom_draw_geometry_with_key_callback(pcd):
     key_to_callback[ord("R")] = load_render_option
     key_to_callback[ord(",")] = capture_depth
     key_to_callback[ord(".")] = capture_image
-    draw_geometries_with_key_callbacks([pcd], key_to_callback)
+    open3d.visualization.draw_geometries_with_key_callbacks([pcd], key_to_callback)
 
 # custom_draw_geometry_with_key_callback(point_cloud)
 
@@ -49,5 +49,5 @@ print(b)
 b = b[:, :3]
 print(b.shape)
 # we need to know
-point_cloud.points = Vector3dVector(b)
+point_cloud.points = open3d.utility.Vector3dVector(b)
 custom_draw_geometry_with_key_callback(point_cloud)
